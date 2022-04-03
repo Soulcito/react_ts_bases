@@ -1,3 +1,3 @@
-import React from 'react'
+import classNames from "classnames/bind";
 
-export const Bind = () => <p>Hello am Bind</p>
+export const bind = (styles: Record<string, string>) => classNames.bind(styles);

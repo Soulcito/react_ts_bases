@@ -18,13 +18,14 @@ import { Timer } from './hooks/timer';
 import { UseRef } from './hooks/use-ref';
 import { UseReducerWithOptions } from './reducer/use-reducer-with-options';
 import './app.module.css';
+import styles from './app.module.css';
 
 
 export const App: FC = () => (
   <BrowserRouter>
      <Route path='/' exact>
-        <main>
-          <header>
+        <main className={styles.wrapper}>
+          <header className={styles.header}>
              <Link to='/use-state'>Use State</Link>
              <Link to='/use-state-inmutable'>Use State Inmutable</Link>
              <Link to='/numeric-input'>Numeric Input</Link>

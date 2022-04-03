@@ -1,8 +1,19 @@
-import React from 'react'
+import { FC, useState } from 'react';
 
-export const UseStateInmutable = () => {
+export const UseStateInmutable: FC = () => {
+
+  const [array, setArray] = useState<number[]>([]);
+
+  const handleClick = () => {
+    setArray( prevValue => [...prevValue, 1]);
+  }
+
   return (
-    <div>Hello am UseStateInmutable!</div>
+    <button onClick={handleClick}>
+      {array.map( (x,idx) => (
+        <span key={idx}>{x}</span>
+        ))}
+    </button>
   )
 }
 

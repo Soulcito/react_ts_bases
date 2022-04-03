@@ -1,8 +1,17 @@
-import React from 'react'
+import { FC, useState } from 'react';
 
-export const UseState = () => {
+export const UseState: FC = () => {
+  
+  const [value, setValue] = useState('hello');
+
+  const handleClick = () => {
+    setValue(prevState => `${prevState} world`);
+  }
+  
   return (
-    <div>Hello am UseState hook!</div>
+    <button onClick={handleClick}>
+      <span>{value}</span> 
+    </button>
   )
 }
 
