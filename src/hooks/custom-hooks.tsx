@@ -1,7 +1,33 @@
-import React from 'react'
+import { FC, useState } from 'react'
 
-export const CustomHooks = () => {
+export const useCounter = (initialValue = 0) => {
+  const [counter, setCounter] = useState(initialValue);
+
+  const incrementCounter = () => setCounter(counter + 1);
+
+  return {
+    counter,
+    incrementCounter
+  }
+}
+
+export const CustomHooks:FC = () => (
+  <>
+    <ComponentA/>
+    <ComponentB/>
+  </>
+)
+
+export function ComponentA() {
+  const { counter, incrementCounter } = useCounter(10);
   return (
-    <div>Hello am CustomHooks!</div>
+    <button onClick={() => incrementCounter()}>Click me {counter}</button>
+  )
+}
+
+export function ComponentB() {
+  const { counter, incrementCounter } = useCounter();
+  return (
+    <button onClick={() => incrementCounter()}>Click me {counter}</button>
   )
 }
