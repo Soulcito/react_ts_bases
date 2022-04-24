@@ -8,17 +8,17 @@ import { ThemeContextComponent } from './context/theme-context';
 import { CustomHooks } from './hooks/custom-hooks';
 import { UseEffect } from './hooks/use-effect';
 import { UseReducer } from './reducer/use-reducer';
-import { UseReducerOriginal } from './reducer/use-reducer-original';
-import { UseReducerRefactor1 } from './reducer/use-reducer-refactor-1';
-import { UseReducerRefactor2 } from './reducer/use-reducer-refactor-2';
 import { UseStateInmutable } from './hooks/use-state-inmutable';
 import { BindStyleCustomProperty } from './bind-style-custom-property';
+import { ClassComponent } from './hooks/class-component';
 import { AppErrorBoundary } from './error-boundaries/error-boundaries';
 import { Timer } from './hooks/timer';
 import { UseRef } from './hooks/use-ref';
 import { UseReducerWithOptions } from './reducer/use-reducer-with-options';
 import './app.module.css';
 import styles from './app.module.css';
+
+
 
 
 export const App: FC = () => (
@@ -36,10 +36,8 @@ export const App: FC = () => (
              <Link to='/use-effect'>Use Effect</Link>
              <Link to='/use-reducer'>Use Reducer</Link>
              <Link to='/use-reducer-with-options'>Use Reducer With Options</Link>
-             <Link to='/use-reducer-original'>Use Reducer Original</Link>
-             <Link to='/use-reducer-refactor-1'>Use Reducer Refactor 1</Link>
-             <Link to='/use-reducer-refactor-2'>Use Reducer Refactor 2</Link>
              <Link to='/bind-style-custom-property'>Bind Style Custom Property</Link>
+             <Link to='/class-component'>Class Component</Link>
              <Link to='/error-boundary'>Error Boundary</Link>
              <Link to='/timer'>Timer</Link>
              <Link to='/use-ref'>Use Ref</Link>
@@ -70,15 +68,6 @@ export const App: FC = () => (
      <Route path='/use-reducer-with-options'>
        <UseReducerWithOptions/>
      </Route>
-     <Route path='/use-reducer-original'>
-       <UseReducerOriginal />
-     </Route>
-     <Route path='/use-reducer-refactor-1'>
-       <UseReducerRefactor1/>
-     </Route>
-     <Route path='/use-reducer-refactor-2'>
-       <UseReducerRefactor2/>
-     </Route>
      <Route path='/use-state'>
        <UseState/>
      </Route>
@@ -88,6 +77,9 @@ export const App: FC = () => (
      <Route path='/bind-style-custom-property'>
        <BindStyleCustomProperty/>
      </Route>
+     <Route path='/class-component'>
+       <ClassComponent/>
+     </Route>     
      <Route path='/error-boundary'>
        <AppErrorBoundary/>
      </Route>

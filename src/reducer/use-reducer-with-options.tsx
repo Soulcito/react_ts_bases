@@ -1,8 +1,47 @@
-import React from 'react'
+import {FC, useReducer, useState} from 'react'
 
-export const UseReducerWithOptions = () => {
+type Action = { type: 'increment' } | { type: 'decrement' } | { type: 'reset' } | { type: 'incrementBy'; by: number };
+
+interface State {
+  count: number
+}
+
+const initialState: State = {
+  count: 0
+}
+
+const reducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    case 'reset':
+      return initialState;
+    case 'incrementBy':
+      return { count: state.count + action.by };  
+    default:
+      return state;
+  }
+}
+
+export const UseReducerWithOptions: FC = () => {
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const [number, setNumber] = useState(0);
+
   return (
-    <div>Hello am UseReducerWithOptions!</div>
+    <>
+      Count: { state.count }
+      <button onClick={() => dispatch({type: 'reset'})}>Reset</button>
+      <button onClick={() => dispatch({type: 'increment'})}>+</button>
+      <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+      <button onClick={() => dispatch({type: 'incrementBy', by: number})}>By</button>
+      <label>
+        Increment by given number
+        <input type="number" value={ number } onChange={ (e) => setNumber(Number(e.target.value))}/>
+      </label>
+    </>
   )
 }
 

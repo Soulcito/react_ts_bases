@@ -4,7 +4,9 @@ export const UseEffect: FC = () => {
   
   const [count, setCount] = useState(1);
   const [countTwo, setCountTwo] = useState(2);
-  const [, setKeyPressed] = useState('');
+  const [keyPressed, setKeyPressed] = useState('');
+
+  console.log(keyPressed);
 
   useEffect(() => {
     document.title = (count + countTwo).toString();
@@ -28,6 +30,7 @@ export const UseEffect: FC = () => {
     <div>
       <button onClick={() => setCount(count + 1)}>Next</button>
       <button onClick={() => setCountTwo(countTwo + 1)}>Next</button>
+      <span>{ keyPressed }</span>
     </div>
   )
 }
